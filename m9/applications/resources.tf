@@ -22,7 +22,7 @@ terraform {
 ##################################################################################
 
 provider "aws" {
-  profile = "deep-dive"
+  profile = "default"
   region  = var.region
 }
 

@@ -29,10 +29,20 @@ cd m4/consul
 # Generate the bootstrap token
 consul acl bootstrap
 
+/* root token
+                        AccessorID:       5c86b991-fa2e-e602-1c94-d90171de043a
+                        SecretID:         f3a81a62-b373-3b49-3b3c-6853656f6868
+                        Description:      Bootstrap Token (Global Management)
+                        Local:            false
+                        Create Time:      2022-03-03 15:46:28.934503061 +0100 CET
+                        Policies:
+                        00000000-0000-0000-0000-000000000001 - global-management
+*/
+
 # Set CONSUL_TOKEN to SecretID
 
 # Linux and MacOS
-export CONSUL_HTTP_TOKEN=SECRETID_VALUE
+export CONSUL_HTTP_TOKEN=f3a81a62-b373-3b49-3b3c-6853656f6868
 
 # Windows
 $env:CONSUL_HTTP_TOKEN="SECRETID_VALUE"
@@ -42,6 +52,24 @@ $env:CONSUL_HTTP_TOKEN="SECRETID_VALUE"
 terraform init
 terraform plan -out consul.tfplan
 terraform apply consul.tfplan
+
+                        mary_token_accessor_id = "f8174a2e-13f7-c6cb-90cf-e6552cd990a3"
+                            AccessorID:       f8174a2e-13f7-c6cb-90cf-e6552cd990a3
+                            SecretID:         aefe1ff6-6def-1fda-623a-42d973da21b3
+                            Description:      token for Mary Moe
+                            Local:            false
+                            Create Time:      2022-03-03 17:01:49.36050322 +0100 CET
+                            Policies:
+                            d91ee137-dc1f-afd3-067b-715962249af8 - networking
+                        
+                        sally_token_accessor_id = "85efc89f-9be6-9f52-ae68-e1e8bdf93f29"
+                            AccessorID:       85efc89f-9be6-9f52-ae68-e1e8bdf93f29
+                            SecretID:         f6f8a1c7-8d54-98c6-b928-b46d3ce782e1
+                            Description:      token for Sally Sue
+                            Local:            false
+                            Create Time:      2022-03-03 17:01:49.361670503 +0100 CET
+                            Policies:
+                            a15e6b61-86f2-7362-c17f-fb134b698044 - applications
 
 # Get token values for Mary and Sally and record them for later
 consul acl token read -id ACCESSOR_ID_MARY

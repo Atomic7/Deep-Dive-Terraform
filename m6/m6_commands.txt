@@ -51,6 +51,9 @@ terraform apply qa.tfplan
 
 ## Creating production is an exercise I leave to you!
 
+
+
+
 ## Now let's change to Sally Sue's token for Consul
 ## You can go into the ACL section of the Consul UI and grab it
 # Linux and MacOS
